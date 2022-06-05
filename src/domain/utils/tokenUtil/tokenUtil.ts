@@ -1,4 +1,4 @@
-import { SecurityConsts } from "../../constants/securityConsts";
+import { SecurityConsts } from "../../../constants/securityConsts";
 const jwt = require("jsonwebtoken");
 
 export class TokenUtil {

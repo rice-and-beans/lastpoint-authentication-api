@@ -1,4 +1,4 @@
-import { gerarTokenUsuarioUseCase } from "../../../domain/useCases/auth/gerarTokenUsuario";
+import { gerarTokenUsuarioUseCase } from "../../../domain/useCases/gerarTokenUsuario";
 import { GerarTokenUsuarioController } from "../gerarTokenUsuarioController/gerarTokenUsuarioController";
 
 const gerarTokenUsuarioController = new GerarTokenUsuarioController(

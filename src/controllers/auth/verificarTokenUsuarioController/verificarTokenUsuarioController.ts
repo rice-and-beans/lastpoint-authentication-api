@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { BaseController } from "../../BaseController";
-import { VerificarTokenUsuarioUseCase } from "../../../domain/useCases/auth/verificarTokenUsuario/verificarTokenUsuarioUseCase";
+import { VerificarTokenUsuarioUseCase } from "../../../domain/useCases/verificarTokenUsuario/verificarTokenUsuarioUseCase";
 
 export class VerificarTokenUsuarioController extends BaseController {
 
