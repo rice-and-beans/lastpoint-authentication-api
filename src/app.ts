@@ -1,9 +1,9 @@
 import express from 'express';
-import { usuario } from './routes/usuarioRoutes';
+import { auth } from './routes/authRoutes';
 
 const app = express();
 
 app.use(express.json());
-app.use('/usuario', usuario);
+app.use('/auth', auth);
 
 export { app }

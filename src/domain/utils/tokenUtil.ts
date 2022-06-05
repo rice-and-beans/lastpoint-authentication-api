@@ -1,17 +1,17 @@
-const securityConsts = require('../constants/securityConsts.js');
+import { SecurityConsts } from "../../constants/securityConsts";
 const jwt = require("jsonwebtoken");
 
 export class TokenUtil {
 
     gerarToken(usuarioId){
         return jwt.sign({usuarioId: usuarioId}, 
-                         securityConsts.SECRET, 
-                        {expiresIn: securityConsts.EXPIRACAO_TOKEN}
+                         SecurityConsts.SECRET, 
+                        {expiresIn: SecurityConsts.EXPIRACAO_TOKEN}
         );
     }
 
     verificarToken(token){
-        return jwt.verify(token, securityConsts.SECRET, (err) => {
+        return jwt.verify(token, SecurityConsts.SECRET, (err) => {
             if(err){
                 return {err: err};
             }else{
