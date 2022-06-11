@@ -8,8 +8,9 @@ export class CriptografarSenhaUseCase {
     ){}
 
     async execute(senha: string): Promise<string> {
-        this.validacaoParamObrigatorio.valida([senha]);
-        return validacaoSenhaUtil.criptogravarSenha(senha);
+        const dadosValidacao = new Map<string, string>([[senha, "senha"]]);
+        await this.validacaoParamObrigatorio.valida(dadosValidacao);
+        return await validacaoSenhaUtil.criptogravarSenha(senha.toString());
     }
 
 }

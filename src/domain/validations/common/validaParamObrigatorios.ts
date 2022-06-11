@@ -10,10 +10,10 @@ export class ValidaParamObrigatorios extends ValidacaoBase {
     }
 
     public async verifica(dadosValidacao: Object){
-        const params = dadosValidacao as Object[];
-        params.forEach(umParam => {
-            if(!umParam){
-                throw new ParamObrigatorioException('Parâmetro: '+umParam+ 'obrigatório, não informado');
+        const params = dadosValidacao as Map<Object, string>;
+        params.forEach((key: string, value: Object) => {
+            if(!value){
+                throw new ParamObrigatorioException('Parâmetro '+key+ ' obrigatório não informado');
             }
         });
     }
