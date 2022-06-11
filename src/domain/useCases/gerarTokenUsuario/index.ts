@@ -1,5 +1,6 @@
 import { ValidaSenhaCorreta } from "../../validations/auth/validaSenhaCorreta";
 import { ValidaUsuarioExiste } from "../../validations/auth/validaUsuarioExiste";
+import { ValidaParamObrigatorios } from "../../validations/common/validaParamObrigatorios";
 import { GerarTokenUsuarioUseCase } from "./gerarTokenUsuarioUseCase";
 
 const validaSenhaCorreta = new ValidaSenhaCorreta();
@@ -8,8 +9,12 @@ const validaUsuarioExiste = new ValidaUsuarioExiste(
     validaSenhaCorreta
 );
 
-const gerarTokenUsuarioUseCase = new GerarTokenUsuarioUseCase(
+const validaParamObrigatorios = new ValidaParamObrigatorios(
     validaUsuarioExiste
+);
+
+const gerarTokenUsuarioUseCase = new GerarTokenUsuarioUseCase(
+    validaParamObrigatorios
 );
 
 export { gerarTokenUsuarioUseCase }
