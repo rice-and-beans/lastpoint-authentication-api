@@ -1,5 +1,5 @@
-const securityConsts = require('../constants/securityConsts.js');
-const PasswordException = require('../exceptions/PasswordException.js');
+import { SecurityConsts } from "../../../constants/securityConsts";
+import { PasswordException } from "../../../domain/exceptions/PasswordException";
 const bcrypt = require('bcrypt');
 
 export class ValidacaoSenhaUtil {
@@ -22,9 +22,9 @@ export class ValidacaoSenhaUtil {
 function validaTamanhoSenha(senha){
     if(senha == ""){
         throw new PasswordException("Senha não informada!");
-    }else if(senha.length < securityConsts.TAMANHO_MIN_SENHA || senha.length > securityConsts.TAMANHO_MAX_SENHA) {
+    }else if(senha.length < SecurityConsts.TAMANHO_MIN_SENHA || senha.length > SecurityConsts.TAMANHO_MAX_SENHA) {
         throw new PasswordException("Senha com comprimento inválido! (MAX: "+
-        securityConsts.TAMANHO_MAX_SENHA+", MIN: "+securityConsts.TAMANHO_MIN_SENHA+")");
+        SecurityConsts.TAMANHO_MAX_SENHA+", MIN: "+SecurityConsts.TAMANHO_MIN_SENHA+")");
     }
 }
 
@@ -49,16 +49,16 @@ function verificarForcaSenhaSemHash(senha) {
 }
 
 function verificarQtdMinimaPadraoSenha(numericos, maiusculas, minusculas, simbolos) {
-    if(numericos < securityConsts.CARACTERES_MIN_NUMERICOS) {
-        throw new PasswordException("Quantidade mínima de numéricos na senha: "+securityConsts.CARACTERES_MIN_NUMERICOS);
+    if(numericos < SecurityConsts.CARACTERES_MIN_NUMERICOS) {
+        throw new PasswordException("Quantidade mínima de numéricos na senha: "+SecurityConsts.CARACTERES_MIN_NUMERICOS);
     }
-    if(maiusculas < securityConsts.CARACTERES_MIN_MAIUSCULA) {
-        throw new PasswordException("Quantidade mínima de maiúsculas na senha: "+securityConsts.CARACTERES_MIN_MAIUSCULA);
+    if(maiusculas < SecurityConsts.CARACTERES_MIN_MAIUSCULA) {
+        throw new PasswordException("Quantidade mínima de maiúsculas na senha: "+SecurityConsts.CARACTERES_MIN_MAIUSCULA);
     }
-    if(minusculas < securityConsts.CARACTERES_MIN_MINUSCULA) {
-        throw new PasswordException("Quantidade mínima de minúsculas na senha: "+securityConsts.CARACTERES_MIN_MINUSCULA);
+    if(minusculas < SecurityConsts.CARACTERES_MIN_MINUSCULA) {
+        throw new PasswordException("Quantidade mínima de minúsculas na senha: "+SecurityConsts.CARACTERES_MIN_MINUSCULA);
     }
-    if(simbolos < securityConsts.CARACTERES_MIN_SIMBOLOS) {
-        throw new PasswordException("Quantidade mínima de símbolos na senha: "+securityConsts.CARACTERES_MIN_SIMBOLOS);
+    if(simbolos < SecurityConsts.CARACTERES_MIN_SIMBOLOS) {
+        throw new PasswordException("Quantidade mínima de símbolos na senha: "+SecurityConsts.CARACTERES_MIN_SIMBOLOS);
     }
 }

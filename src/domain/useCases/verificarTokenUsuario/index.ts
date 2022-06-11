@@ -1,5 +1,10 @@
+import { TokensInvalidosRepositoryImpl } from "../../../data/repositories/tokensInvalidosRepositoryImpl";
 import { VerificarTokenUsuarioUseCase } from "./verificarTokenUsuarioUseCase";
 
-const verificarTokenUsuario = new VerificarTokenUsuarioUseCase();
+const tokensInvalidosRepositoryImpl = new TokensInvalidosRepositoryImpl();
+
+const verificarTokenUsuario = new VerificarTokenUsuarioUseCase(
+    tokensInvalidosRepositoryImpl
+);
 
 export { verificarTokenUsuario }

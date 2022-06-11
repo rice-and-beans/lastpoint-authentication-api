@@ -1,21 +1,19 @@
 import { recordsApi } from "../../services/recordsApi";
-import { validacaoSenhaUtil } from "../../utils/validacaoSenhaUtil";
 import { tokenUtil } from "../../utils/tokenUtil";
-import { AutenticationException } from "../../exceptions/AutenticationException";
+import { ValidacaoBase } from "../../validations/ValidacaoBase";
 
 export class GerarTokenUsuarioUseCase {
 
+    constructor(
+        private validaoesUsuarioValido: ValidacaoBase,
+    ){}
+
     async execute(login: string, senha: string): Promise<string|null> {
         const usuario = await recordsApi.buscarUsuarioPorEmail(login);
-        if(usuario != null){
-            if(await validacaoSenhaUtil.compararSenha(usuario.senha, senha)){
-                return tokenUtil.gerarToken(usuario.id);
-            }else{
-                throw new AutenticationException('');
-            }
-        }else{
-            throw new AutenticationException('');
-        }
+        const dadosValidSenha = {usuario: usuario, senhaComparacao: senha}
+        
+        await this.validaoesUsuarioValido.valida(dadosValidSenha);
+        return tokenUtil.gerarToken(usuario.id);
     }
 
 }

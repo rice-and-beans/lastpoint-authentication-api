@@ -1,4 +1,5 @@
 import { Router } from "express";
+
 import { gerarTokenUsuarioController } from "../controllers/auth/gerarTokenUsuarioController";
 import { verificarTokenUsuarioController } from "../controllers/auth/verificarTokenUsuarioController";
 
