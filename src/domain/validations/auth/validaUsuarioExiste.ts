@@ -13,7 +13,7 @@ export class ValidaUsuarioExiste extends ValidacaoBase {
     public async verifica(dadosValidacao: Object){
         const usuario = dadosValidacao as IUsuarioDTO;
         if(usuario == null){
-            throw new AutenticationException('');
+            throw new AutenticationException('Bloqueado');
         }
     }
     

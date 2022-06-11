@@ -14,7 +14,7 @@ export class ValidaSenhaCorreta extends ValidacaoBase {
     public async verifica(dadosValidacao: Object){
         const dadosValidSenha = dadosValidacao as IUsuarioSecurityDTO;
         if(await !validacaoSenhaUtil.compararSenha(dadosValidSenha.usuario.senha, dadosValidSenha.senhaComparacao)){
-            throw new AutenticationException('');
+            throw new AutenticationException('Bloqueado');
         }
     }
     

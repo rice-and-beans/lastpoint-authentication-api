@@ -16,7 +16,7 @@ export class ValidaTokenJaUsado extends ValidacaoBase {
         const dadosValidToken = dadosValidacao as ITokenValidacaoDTO;
         const tokenJaUsado = this.tokensInvalidosRepository.buscarTokensInvalidos(dadosValidToken.token);
         if(tokenJaUsado){
-            throw new AutenticationException('');
+            throw new AutenticationException('Bloqueado');
         }
     }
 

@@ -8,9 +8,9 @@ export class VerificarTokenUsuarioUseCase {
     ){}
 
     async execute(token: string){
-        const resposta = tokenUtil.verificarToken(token != null ? token : '');
+        const resposta = tokenUtil.verificarToken(token ? token : '');
         const dadosValidToken = { token: token, resposta: resposta }
-        this.validacoesToken.valida(dadosValidToken);
+        await this.validacoesToken.valida(dadosValidToken);
     }
 
 }
