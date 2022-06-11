@@ -1,11 +1,12 @@
 import { AutenticationException } from "../../exceptions/AutenticationException";
 import { ITokenValidacaoDTO } from "../../model/tokenValidacaoDTO";
-import { IUsuarioSecurityDTO } from "../../model/usuarioSecurityDTO";
+import { ITokensInvalidosRepository } from "../../repositories/tokensInvalidosRepository";
 import { ValidacaoBase } from "../ValidacaoBase";
 
-export class ValidaTokenCorreto extends ValidacaoBase {
+export class ValidaTokenJaUsado extends ValidacaoBase {
 
     constructor(
+        private tokensInvalidosRepository: ITokensInvalidosRepository,
         protected proximo?: ValidacaoBase,
     ){
         super(proximo)
@@ -13,9 +14,10 @@ export class ValidaTokenCorreto extends ValidacaoBase {
 
     public async verifica(dadosValidacao: Object){
         const dadosValidToken = dadosValidacao as ITokenValidacaoDTO;
-        if(dadosValidToken.resposta != null && dadosValidToken.resposta.err != null){
+        const tokenJaUsado = this.tokensInvalidosRepository.buscarTokensInvalidos(dadosValidToken.token);
+        if(tokenJaUsado){
             throw new AutenticationException('');
         }
     }
-    
+
 }
