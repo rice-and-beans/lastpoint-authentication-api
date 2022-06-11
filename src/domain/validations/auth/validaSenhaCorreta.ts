@@ -1,7 +1,7 @@
 import { AutenticationException } from "../../exceptions/AutenticationException";
 import { IUsuarioSecurityDTO } from "../../model/usuarioSecurityDTO";
 import { validacaoSenhaUtil } from "../../utils/validacaoSenhaUtil";
-import { ValidacaoBase } from "../ValidacaoBase";
+import { ValidacaoBase } from "../validacaoBase";
 
 export class ValidaSenhaCorreta extends ValidacaoBase {
 

@@ -1,7 +1,7 @@
 import { AutenticationException } from "../../exceptions/AutenticationException";
 import { ITokenValidacaoDTO } from "../../model/tokenValidacaoDTO";
 import { ITokensInvalidosRepository } from "../../repositories/tokensInvalidosRepository";
-import { ValidacaoBase } from "../ValidacaoBase";
+import { ValidacaoBase } from "../validacaoBase";
 
 export class ValidaTokenJaUsado extends ValidacaoBase {
 

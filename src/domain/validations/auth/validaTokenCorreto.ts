@@ -1,6 +1,6 @@
 import { AutenticationException } from "../../exceptions/AutenticationException";
 import { ITokenValidacaoDTO } from "../../model/tokenValidacaoDTO";
-import { ValidacaoBase } from "../ValidacaoBase";
+import { ValidacaoBase } from "../validacaoBase";
 
 export class ValidaTokenCorreto extends ValidacaoBase {
 

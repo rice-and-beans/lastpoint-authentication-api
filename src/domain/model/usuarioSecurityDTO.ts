@@ -1,6 +1,6 @@
-import { Usuario } from "../../data/entities/usuario";
+import { IUsuarioDTO } from "../../domain/model/usuarioDTO";
 
 export interface IUsuarioSecurityDTO {
-    usuario: Usuario;
+    usuario: IUsuarioDTO;
     senhaComparacao: string;
 }

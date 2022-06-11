@@ -1,5 +1,5 @@
 import { ParamObrigatorioException } from "../../exceptions/ParamObrigatorioException";
-import { ValidacaoBase } from "../ValidacaoBase";
+import { ValidacaoBase } from "../validacaoBase";
 
 export class ValidaParamObrigatorios extends ValidacaoBase {
 

@@ -1,6 +1,6 @@
-import { Usuario } from "../../../data/entities/usuario";
+import { IUsuarioDTO } from "../../../domain/model/usuarioDTO";
 import { AutenticationException } from "../../exceptions/AutenticationException";
-import { ValidacaoBase } from "../ValidacaoBase";
+import { ValidacaoBase } from "../validacaoBase";
 
 export class ValidaUsuarioExiste extends ValidacaoBase {
 
@@ -11,7 +11,7 @@ export class ValidaUsuarioExiste extends ValidacaoBase {
     }
 
     public async verifica(dadosValidacao: Object){
-        const usuario = dadosValidacao as Usuario;
+        const usuario = dadosValidacao as IUsuarioDTO;
         if(usuario == null){
             throw new AutenticationException('');
         }
