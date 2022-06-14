@@ -1,10 +1,10 @@
 import { ValidaParamObrigatorios } from "../../validations/common/validaParamObrigatorios";
-import { CriptografarSenhaUseCase } from "./criptografarSenhaUseCase";
+import { GerarChaveTokenUseCase } from "./gerarChaveTokenUseCase";
 
 const validaParamObrigatorios = new ValidaParamObrigatorios();
 
-const criptografarSenhaUseCase = new CriptografarSenhaUseCase(
+const gerarChaveTokenUseCase = new GerarChaveTokenUseCase(
     validaParamObrigatorios
 );
 
-export { criptografarSenhaUseCase }
+export { gerarChaveTokenUseCase }

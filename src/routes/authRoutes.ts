@@ -3,6 +3,7 @@ import { Router } from "express";
 import { gerarTokenUsuarioController } from "../controllers/auth/gerarTokenUsuarioController";
 import { verificarTokenUsuarioController } from "../controllers/auth/verificarTokenUsuarioController";
 import { criptografarSenhaController } from "../controllers/auth/criptografarSenhaController";
+import { gerarChaveTokenController } from "../controllers/auth/gerarChaveTokenController";
 
 const router = Router();
 
@@ -16,6 +17,10 @@ router.post('/', async (request, response) => {
 
 router.post('/cript', async (request, response) => {
     return await criptografarSenhaController.handle(request, response);
+});
+
+router.post('/key', async (request, response) => {
+    return await gerarChaveTokenController.handle(request, response);
 });
 
 export { router as auth };

@@ -3,8 +3,8 @@ const jwt = require("jsonwebtoken");
 
 export class TokenUtil {
 
-    gerarToken(usuarioId){
-        return jwt.sign({usuarioId: usuarioId}, 
+    gerarToken(chave){
+        return jwt.sign({chave: chave}, 
                          SecurityConsts.SECRET, 
                         {expiresIn: SecurityConsts.EXPIRACAO_TOKEN}
         );
