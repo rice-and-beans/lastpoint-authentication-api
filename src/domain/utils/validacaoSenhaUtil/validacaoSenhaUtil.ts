@@ -9,7 +9,7 @@ export class ValidacaoSenhaUtil {
         verificarForcaSenhaSemHash(senha);
     }
 
-    async criptogravarSenha(senha){
+    async criptografar(senha){
         return await bcrypt.hash(senha, 8);
     }
 
