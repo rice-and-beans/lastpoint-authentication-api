@@ -1,4 +1,4 @@
-import { AutenticationException } from "../../exceptions/AutenticationException";
+import { AutenticationException } from "../../exceptions/autenticationException";
 import { IUsuarioSecurityDTO } from "../../model/usuarioSecurityDTO";
 import { validacaoSenhaUtil } from "../../utils/validacaoSenhaUtil";
 import { ValidacaoBase } from "../validacaoBase";

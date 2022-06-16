@@ -1,5 +1,5 @@
 import { SecurityConsts } from "../../../constants/securityConsts";
-import { PasswordException } from "../../../domain/exceptions/PasswordException";
+import { PasswordException } from "../../exceptions/passwordException";
 const bcrypt = require('bcrypt');
 
 export class ValidacaoSenhaUtil {

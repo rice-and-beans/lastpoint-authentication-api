@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { BaseController } from "../../BaseController";
+import { BaseController } from "../../baseController";
 import { CriptografarUseCase } from "../../../domain/useCases/criptografarSenha/criptografarUseCase";
 
 export class CriptografarController extends BaseController {

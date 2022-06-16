@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { BaseController } from "../../BaseController";
+import { BaseController } from "../../baseController";
 import { GerarTokenUsuarioUseCase } from "../../../domain/useCases/gerarTokenUsuario/gerarTokenUsuarioUseCase";
 
 export class GerarTokenUsuarioController extends BaseController {

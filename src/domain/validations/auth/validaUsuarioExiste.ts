@@ -1,5 +1,5 @@
 import { IUsuarioDTO } from "../../../domain/model/usuarioDTO";
-import { AutenticationException } from "../../exceptions/AutenticationException";
+import { AutenticationException } from "../../exceptions/autenticationException";
 import { ValidacaoBase } from "../validacaoBase";
 
 export class ValidaUsuarioExiste extends ValidacaoBase {

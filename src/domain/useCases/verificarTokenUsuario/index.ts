@@ -13,8 +13,8 @@ const validaTokenCorreto = new ValidaTokenCorreto(
     validaTokenJaUsado
 );
 
-const verificarTokenUsuario = new VerificarTokenUsuarioUseCase(
+const verificarTokenUsuarioUseCase = new VerificarTokenUsuarioUseCase(
     validaTokenCorreto
 );
 
-export { verificarTokenUsuario }
+export { verificarTokenUsuarioUseCase }

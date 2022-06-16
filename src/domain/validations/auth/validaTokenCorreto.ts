@@ -1,4 +1,4 @@
-import { AutenticationException } from "../../exceptions/AutenticationException";
+import { AutenticationException } from "../../exceptions/autenticationException";
 import { ITokenValidacaoDTO } from "../../model/tokenValidacaoDTO";
 import { ValidacaoBase } from "../validacaoBase";
 
