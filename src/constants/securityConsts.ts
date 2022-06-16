@@ -6,5 +6,5 @@ export class SecurityConsts {
     public static readonly CARACTERES_MIN_MINUSCULA: number = 1;
     public static readonly CARACTERES_MIN_SIMBOLOS: number = 1;
     public static readonly SECRET: string = "QDGVHRBS3745635";
-    public static readonly EXPIRACAO_TOKEN: number = 3600;
+    public static readonly EXPIRACAO_TOKEN: number = 30000;
 }
