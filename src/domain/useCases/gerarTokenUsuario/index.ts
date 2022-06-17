@@ -4,17 +4,13 @@ import { ValidaParamObrigatorios } from "../../validations/common/validaParamObr
 import { GerarTokenUsuarioUseCase } from "./gerarTokenUsuarioUseCase";
 
 const validaSenhaCorreta = new ValidaSenhaCorreta();
-
-const validaUsuarioExiste = new ValidaUsuarioExiste(
-    validaSenhaCorreta
-);
-
-const validaParamObrigatorios = new ValidaParamObrigatorios(
-    validaUsuarioExiste
-);
+const validaUsuarioExiste = new ValidaUsuarioExiste();
+const validaParamObrigatorios = new ValidaParamObrigatorios();
 
 const gerarTokenUsuarioUseCase = new GerarTokenUsuarioUseCase(
-    validaParamObrigatorios
+    validaParamObrigatorios,
+    validaUsuarioExiste,
+    validaSenhaCorreta
 );
 
 export { gerarTokenUsuarioUseCase }

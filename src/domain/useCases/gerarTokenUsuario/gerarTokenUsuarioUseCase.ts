@@ -5,14 +5,27 @@ import { ValidacaoBase } from "../../validations/validacaoBase";
 export class GerarTokenUsuarioUseCase {
 
     constructor(
-        private validaoesUsuarioValido: ValidacaoBase,
+        private validaParamObrigatorios: ValidacaoBase,
+        private validaUsuarioExiste: ValidacaoBase,
+        private validaSenhaCorreta: ValidacaoBase,
     ){}
 
     async execute(login: string, senha: string): Promise<string|null> {
         const usuario = await recordsApi.buscarUsuarioPorEmail(login);
-        const dadosValidSenha = {usuario: usuario, senhaComparacao: senha}
+
+        const dadosValidacao = new Map<string, string>([
+            [usuario, "usuario"],
+            [senha, "senha"]
+        ]);
+        await this.validaParamObrigatorios.valida(dadosValidacao);
+
+        await this.validaUsuarioExiste.valida(usuario);
+
+        await this.validaSenhaCorreta.valida({
+            usuario: usuario, 
+            senhaComparacao: senha
+        });
         
-        await this.validaoesUsuarioValido.valida(dadosValidSenha);
         return tokenUtil.gerarToken(usuario.id);
     }
 
