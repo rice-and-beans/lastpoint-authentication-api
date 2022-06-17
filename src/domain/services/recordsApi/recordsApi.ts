@@ -4,9 +4,10 @@ const axios = require('axios');
 
 export class RecordsApi {
     async buscarUsuarioPorEmail(email: string): Promise<IUsuarioDTO> {
-        return await axios.post('http://localhost:3002/usuario/buscarUsuarioPorEmail', {
+        return await axios.get('http://localhost:3001/usuario/buscarUsuarioPorEmail', {
             email: email
-        }).catch(() => {
+        }).catch((err) => {
+            console.log(err)
             throw new ServicoIndisponivelException("Serviço indisponível: RecordsApi");
         })
     }

@@ -1,8 +1,8 @@
-import { verificarTokenUsuario } from "../../../domain/useCases/verificarTokenUsuario";
+import { verificarTokenUsuarioUseCase } from "../../../domain/useCases/verificarTokenUsuario";
 import { VerificarTokenUsuarioController } from "../verificarTokenUsuarioController/verificarTokenUsuarioController";
 
 const verificarTokenUsuarioController = new VerificarTokenUsuarioController(
-    verificarTokenUsuario
+    verificarTokenUsuarioUseCase
 );
 
 export { verificarTokenUsuarioController }
