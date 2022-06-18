@@ -12,7 +12,7 @@ export class ValidaTokenCorreto extends ValidacaoBase {
 
     public async verifica(dadosValidacao: Object){
         const dadosValidToken = dadosValidacao as ITokenValidacaoDTO;
-        if(dadosValidToken.resposta != null && dadosValidToken.resposta.err != null){
+        if(dadosValidToken.resposta != undefined && dadosValidToken.resposta != null && dadosValidToken.resposta.err != null){
             throw new AutenticationException('Bloqueado');
         }
     }

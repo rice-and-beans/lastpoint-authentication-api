@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { BaseController } from "../../baseController";
 import { CriptografarUseCase } from "../../../domain/useCases/criptografarSenha/criptografarUseCase";
+import { BaseControllerAuth } from "../../baseControllerAuth";
 
-export class CriptografarController extends BaseController {
+export class CriptografarController extends BaseControllerAuth {
 
     constructor(
         private criptografarUseCase: CriptografarUseCase,

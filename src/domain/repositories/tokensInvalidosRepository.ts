@@ -1,6 +1,7 @@
 import { TokensInvalidos } from "../../data/entities/tokensInvalidos";
 
 export interface ITokensInvalidosRepository {
-    buscarTokensInvalidos(email: string): Promise<TokensInvalidos[]>;
-    salvarTokenInvalido(token: string, usuarioCodigo: string);
+    buscarTokensInvalidos(token: string): Promise<TokensInvalidos[]>;
+    recuperaTokenJaUsado(email: string): Promise<string|null>;
+    salvarTokenInvalido(token: string);
 }

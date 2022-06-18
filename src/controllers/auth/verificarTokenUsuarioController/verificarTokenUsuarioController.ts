@@ -12,7 +12,7 @@ export class VerificarTokenUsuarioController extends BaseController {
 
     async execute(request: Request, response: Response): Promise<Response>{
         const token = request.headers['x-access-token'];
-        await this.verificarTokenUsuarioUseCase.execute(token ? token[0] : null);
+        await this.verificarTokenUsuarioUseCase.execute(token);
         return response.status(200).send();
     }
 

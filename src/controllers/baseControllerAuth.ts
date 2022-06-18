@@ -1,5 +1,6 @@
 import { AutenticacaoInvalidaException } from "../domain/exceptions/autenticacaoInvalidaException";
 import { verificarTokenUsuarioUseCase } from "../domain/useCases/verificarTokenUsuario";
+import { salvarTokenInvalidoUseCase } from "../domain/useCases/salvarTokenInvalido";
 import { BaseController } from "./baseController";
 
 export abstract class BaseControllerAuth extends BaseController{
@@ -13,5 +14,6 @@ export abstract class BaseControllerAuth extends BaseController{
         } catch (error) {
             throw new AutenticacaoInvalidaException("Não Autenticado");
         }
+        await salvarTokenInvalidoUseCase.execute(token);
     }
 }

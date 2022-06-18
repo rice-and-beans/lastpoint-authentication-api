@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { BaseController } from "../../baseController";
 import { GerarChaveTokenUseCase } from "../../../domain/useCases/gerarChaveToken/gerarChaveTokenUseCase";
+import { BaseControllerAuth } from "../../baseControllerAuth";
 
-export class GerarChaveTokenController extends BaseController {
+export class GerarChaveTokenController extends BaseControllerAuth {
 
     constructor(
         private gerarChaveTokenUseCase: GerarChaveTokenUseCase,

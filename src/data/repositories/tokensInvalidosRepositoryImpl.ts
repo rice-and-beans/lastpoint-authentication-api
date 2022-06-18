@@ -3,20 +3,23 @@ import { ITokensInvalidosRepository } from "../../domain/repositories/tokensInva
 import { TokensInvalidos } from "../entities/tokensInvalidos";
 
 export class TokensInvalidosRepositoryImpl implements ITokensInvalidosRepository {
-    async buscarTokensInvalidos(usuarioCodigo: string): Promise<TokensInvalidos[]>{
-        const listaTokensInvalidos = await prismaClient.tokensInvalidos.findMany({
-            where: { 
-                usuarioCodigo: usuarioCodigo
-            }
-        });
+    async buscarTokensInvalidos(): Promise<TokensInvalidos[]>{
+        const listaTokensInvalidos = await prismaClient.tokensInvalidos.findMany();
         return listaTokensInvalidos;
     }
-    async salvarTokenInvalido(token: string, usuarioCodigo: string) {
+    async salvarTokenInvalido(token: string) {
         await prismaClient.tokensInvalidos.create({
             data: {
-                token: token,
-                usuarioCodigo: usuarioCodigo
+                token: token
             }
         });
+    }
+    async recuperaTokenJaUsado(token: string): Promise<string|null> {
+        const tokenInvalido = await prismaClient.tokensInvalidos.findMany({
+            where: { 
+                token: token
+            }
+        });
+        return tokenInvalido != null && tokenInvalido.length > 0 ? tokenInvalido[0].token : null;
     }
 }

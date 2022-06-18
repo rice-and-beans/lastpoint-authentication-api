@@ -14,7 +14,7 @@ export class RecordsApi {
             }else{
                 return null;
             }
-        }).catch((err) => {
+        }).catch(() => {
             throw new ServicoIndisponivelException("Serviço indisponível: RecordsApi");
         });
     }

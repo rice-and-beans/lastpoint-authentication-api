@@ -14,7 +14,7 @@ export class ValidaTokenJaUsado extends ValidacaoBase {
 
     public async verifica(dadosValidacao: Object){
         const dadosValidToken = dadosValidacao as ITokenValidacaoDTO;
-        const tokenJaUsado = this.tokensInvalidosRepository.buscarTokensInvalidos(dadosValidToken.token);
+        const tokenJaUsado = await this.tokensInvalidosRepository.recuperaTokenJaUsado(dadosValidToken.token);
         if(tokenJaUsado){
             throw new AutenticationException('Bloqueado');
         }

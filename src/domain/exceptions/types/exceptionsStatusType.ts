@@ -3,5 +3,5 @@ export enum ExcpetionStatusType {
     AutenticationException = 403,
     AxiosError = 502,
     ParamObrigatorioException = 400,
-    ServicoIndisponivelException = 503
+    ServicoIndisponivelException = 503,
 }

@@ -10,5 +10,4 @@ datasource db {
 model TokensInvalidos {
   id     String @id @default(auto()) @map("_id") @db.ObjectId
   token String
-  usuarioCodigo  String @unique
 }

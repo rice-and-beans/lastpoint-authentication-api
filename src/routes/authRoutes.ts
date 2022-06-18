@@ -4,6 +4,7 @@ import { gerarTokenUsuarioController } from "../controllers/auth/gerarTokenUsuar
 import { verificarTokenUsuarioController } from "../controllers/auth/verificarTokenUsuarioController";
 import { criptografarController } from "../controllers/auth/criptografarController";
 import { gerarChaveTokenController } from "../controllers/auth/gerarChaveTokenController";
+import { salvarTokenInvalidoController } from "../controllers/auth/salvarTokenInvalidoController";
 
 const router = Router();
 
@@ -21,6 +22,10 @@ router.post('/cript', async (request, response) => {
 
 router.post('/key', async (request, response) => {
     return await gerarChaveTokenController.handle(request, response);
+});
+
+router.post('/invalid', async (request, response) => {
+    return await salvarTokenInvalidoController.handle(request, response);
 });
 
 export { router as auth };
