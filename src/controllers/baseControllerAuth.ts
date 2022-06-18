@@ -7,10 +7,9 @@ export abstract class BaseControllerAuth extends BaseController{
 
     protected async auth(request, response){
         const token = request.headers['x-access-token'];
-        var retorno: any;
         
         try {
-            retorno = await verificarTokenUsuarioUseCase.execute(token);
+            await verificarTokenUsuarioUseCase.execute(token);
         } catch (error) {
             throw new AutenticacaoInvalidaException("Não Autenticado");
         }
