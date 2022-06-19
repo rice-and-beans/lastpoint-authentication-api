@@ -1,5 +1,4 @@
 import { verificarTokenUsuarioUseCase } from "../domain/useCases/verificarTokenUsuario";
-import { salvarTokenInvalidoUseCase } from "../domain/useCases/salvarTokenInvalido";
 import { BaseController } from "./baseController";
 import { AutenticationException } from "../domain/exceptions/autenticationException";
 
