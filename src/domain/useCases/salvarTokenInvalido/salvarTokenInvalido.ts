@@ -1,3 +1,4 @@
+import { Console } from "console";
 import { ITokensInvalidosRepository } from "../../repositories/tokensInvalidosRepository";
 import { ValidacaoBase } from "../../validations/validacaoBase";
 

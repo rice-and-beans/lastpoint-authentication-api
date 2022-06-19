@@ -1,4 +1,6 @@
+import { MessageConstants } from "../../../constants/messageConstants";
 import { IUsuarioDTO } from "../../../domain/model/usuarioDTO";
+import { AutenticationException } from "../../exceptions/autenticationException";
 import { ServicoIndisponivelException } from "../../exceptions/servicoIndisponivelException";
 const axios = require('axios');
 
@@ -14,8 +16,12 @@ export class RecordsApi {
             }else{
                 return null;
             }
-        }).catch(() => {
-            throw new ServicoIndisponivelException("Serviço indisponível: RecordsApi");
+        }).catch((err) => {
+            if(err.message && err.message.includes(MessageConstants.MGS_SERVICO_INDISPONIVEL_AUTH)){
+                throw new ServicoIndisponivelException("Serviço indisponível: RecordsApi");
+            }else{
+                throw new AutenticationException("Dados de autenticação inválidos");
+            }
         });
     }
 }

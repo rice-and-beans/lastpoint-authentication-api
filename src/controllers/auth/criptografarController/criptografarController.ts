@@ -11,7 +11,7 @@ export class CriptografarController extends BaseControllerAuth {
     }
 
     async execute(request: Request, response: Response): Promise<Response>{
-        const conteudo = request.query.codigo as string;
+        const conteudo = request.query.conteudo as string;
         const token = await this.criptografarUseCase.execute(
             conteudo
         );
