@@ -20,7 +20,7 @@ router.post('/cript', async (request, response) => {
     return await criptografarController.handle(request, response);
 });
 
-router.post('/key', async (request, response) => {
+router.get('/key', async (request, response) => {
     return await gerarChaveTokenController.handle(request, response);
 });
 

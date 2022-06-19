@@ -3,10 +3,12 @@ import { ITokensInvalidosRepository } from "../../domain/repositories/tokensInva
 import { TokensInvalidos } from "../entities/tokensInvalidos";
 
 export class TokensInvalidosRepositoryImpl implements ITokensInvalidosRepository {
+    
     async buscarTokensInvalidos(): Promise<TokensInvalidos[]>{
         const listaTokensInvalidos = await prismaClient.tokensInvalidos.findMany();
         return listaTokensInvalidos;
     }
+
     async salvarTokenInvalido(token: string) {
         await prismaClient.tokensInvalidos.create({
             data: {
@@ -14,6 +16,7 @@ export class TokensInvalidosRepositoryImpl implements ITokensInvalidosRepository
             }
         });
     }
+
     async recuperaTokenJaUsado(token: string): Promise<string|null> {
         const tokenInvalido = await prismaClient.tokensInvalidos.findMany({
             where: { 
@@ -22,4 +25,5 @@ export class TokensInvalidosRepositoryImpl implements ITokensInvalidosRepository
         });
         return tokenInvalido != null && tokenInvalido.length > 0 ? tokenInvalido[0].token : null;
     }
+    
 }

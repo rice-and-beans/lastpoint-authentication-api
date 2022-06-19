@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { GerarChaveTokenUseCase } from "../../../domain/useCases/gerarChaveToken/gerarChaveTokenUseCase";
-import { BaseControllerAuth } from "../../baseControllerAuth";
+import { BaseController } from "../../baseController";
 
-export class GerarChaveTokenController extends BaseControllerAuth {
+export class GerarChaveTokenController extends BaseController {
 
     constructor(
         private gerarChaveTokenUseCase: GerarChaveTokenUseCase,
@@ -11,7 +11,7 @@ export class GerarChaveTokenController extends BaseControllerAuth {
     }
 
     async execute(request: Request, response: Response): Promise<Response>{
-        const { chave } = request.body;
+        const chave = request.query.chave as string;
         const token = await this.gerarChaveTokenUseCase.execute(
             chave
         );

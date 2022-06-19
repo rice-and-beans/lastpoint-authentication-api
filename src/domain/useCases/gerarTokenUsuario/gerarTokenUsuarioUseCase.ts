@@ -17,6 +17,7 @@ export class GerarTokenUsuarioUseCase {
             [usuario, "usuario"],
             [senha, "senha"]
         ]);
+        
         await this.validaParamObrigatorios.valida(dadosValidacao);
         await this.validaUsuarioExiste.valida(usuario);
 
