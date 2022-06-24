@@ -12,15 +12,15 @@ export class GerarTokenUsuarioUseCase {
 
     async execute(login: string, senha: string): Promise<string|null> {
         const usuario = await recordsApi.buscarUsuarioPorEmail(login);
-
         const dadosValidacao = new Map<string, string>([
             [usuario, "usuario"],
             [senha, "senha"]
         ]);
         
         await this.validaParamObrigatorios.valida(dadosValidacao);
+       
         await this.validaUsuarioExiste.valida(usuario);
-
+        
         await this.validaSenhaCorreta.valida({
             usuario: usuario, 
             senhaComparacao: senha
